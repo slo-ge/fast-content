@@ -43,6 +43,11 @@ const MetaMapper = () => {
 		our
 		user-friendly interface and wide range of customizable templates, you can easily create professional-looking
 		graphics for your blog, social media, or business.</p>
+		<p>Introducing our new tool for creating content from meta tags! With just a few simple steps, you can generate
+			high-quality, search engine optimized content for your website or blog. Simply enter your target keywords
+			and our tool will automatically generate a well-written and informative article, complete with relevant meta
+			tags to help improve your search engine rankings. Try it out today and see the difference it can make for
+			your online presence!</p>
 
 		<p>Whether you're a design pro or a complete beginner, Meta-Mapper has everything you need to create stunning
 			visuals that stand out from the crowd. Our intuitive drag-and-drop editor lets you customize every aspect of
@@ -103,8 +108,8 @@ export default function Index() {
 		<Introduction/>
 		<Canva/>
 		<AdobeSpark/>
-		<Visme />
-		<Crello />
+		<Visme/>
+		<Crello/>
 		<h2>Meta-Mapper.com</h2>
 		<MetaMapper/>
 		<Pros/>
