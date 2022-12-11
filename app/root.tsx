@@ -10,13 +10,14 @@ import {
 
 
 import defaultStyle from "public/style/default.css";
+import {SEO_DESCRIPTION, SEO_TITLE} from "~/static";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: SEO_TITLE,
   viewport: "width=device-width,initial-scale=1",
+  description: SEO_DESCRIPTION
 });
-
 
 
 export function links() {

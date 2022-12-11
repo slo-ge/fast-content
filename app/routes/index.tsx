@@ -1,39 +1,39 @@
+import {AdobeSpark, Canva, Crello, Visme} from "~/components/content/canva";
+
 const Introduction = () => {
 	return <><p>Are you tired of spending hours on end writing and editing your content? Do you wish there was a way to
 		create high-quality, engaging content without all the hassle and time investment? Look no further, because the
 		solution is here! Introducing a range of tools that can help you create content quickly and easily.</p>
 
-		<p>With our user-friendly interfaces and powerful features, you can craft engaging and informative content that
+		<p>These user-friendly interfaces and powerful features, you can craft engaging and informative content that
 			captivates your audience. Whether you're a writer, blogger, or content marketer, these tools have everything
 			you
 			need to take your content to the next level.</p>
 
-		<p>Our tools cover every step of the content creation process, from brainstorming and organization to writing
+		<p>These tools cover every step of the content creation process, from brainstorming and organization to writing
 			and
 			editing. With features like keyword research and suggestion, grammar and spelling check, and readability
 			analysis,
 			you can ensure that your content is not only well-written, but also optimized for search engines and easy to
 			read.</p>
 
-		<p>But that's not all – our tools also offer a range of customizable templates and design options, so you can
+		<p>But that's not all – these tools also offer a range of customizable templates and design options, so you can
 			create
 			visually appealing content that stands out from the crowd. From social media posts and infographics to blog
 			headers and email newsletters, you can create a wide range of visuals that match your brand and
 			aesthetic.</p>
 
-		<p>And best of all, our tools are designed to be intuitive and user-friendly, so you don't need any design or
+		<p>And best of all, these tools are designed to be intuitive and user-friendly, so you don't need any design or
 			coding
 			skills to use them. Whether you're a design pro or a complete beginner, you can easily create stunning
 			visuals in
 			minutes.</p>
 
-		<p>So why waste time and effort on tedious content creation tasks? Try our tools now and see how easy it is to
-			create fast, high-quality content that gets results. With our powerful features and user-friendly
+		<p>So why waste time and effort on tedious content creation tasks? Try these tools now and see how easy it is to
+			create fast, high-quality content that gets results. With these powerful features and user-friendly
 			interfaces, you
 			can create engaging and informative content that captivates your audience and drives traffic to your
-			website.
-			Visit our <a href="https://www.meta-mapper.com">website</a> to learn more and start creating content like a
-			pro.</p>
+			website.</p>
 	</>;
 }
 
@@ -96,10 +96,16 @@ const Pros = () => {
 
 export default function Index() {
 	return <>
-		<h1>Fast-Content.com</h1>
+		<header>
+			<img src="/logo.png"/><h1>Fast-Content.com</h1>
+		</header>
 		<Introduction/>
+		<Canva/>
+		<AdobeSpark/>
+		<Visme />
+		<Crello />
 		<h2>Meta-Mapper.com</h2>
 		<MetaMapper/>
-		<Pros />
+		<Pros/>
 	</>;
 }
