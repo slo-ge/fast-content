@@ -1,4 +1,5 @@
 import {AdobeSpark, Canva, Crello, Visme} from "~/components/content/canva";
+import {Link} from "@remix-run/react";
 
 const Introduction = () => {
 	return <><p>Are you tired of spending hours on end writing and editing your content? Do you wish there was a way to
@@ -107,5 +108,6 @@ export default function Index() {
 		<h2>Meta-Mapper.com</h2>
 		<MetaMapper/>
 		<Pros/>
+		<div><Link to="/imprint">Imprint</Link></div>
 	</>;
 }
