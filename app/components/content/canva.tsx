@@ -40,6 +40,7 @@ export function Visme() {
 			professional-looking designs without needing any specialized design skills. Visme is easy to use and can be
 			accessed online, making it a popular choice for businesses, bloggers, and individuals who want to create
 			engaging visual content for social media, websites, and other online platforms. It is often compared to
+
 			Canva, another popular online design tool.</p>
 	</>
 }
