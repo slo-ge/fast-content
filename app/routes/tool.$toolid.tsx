@@ -42,7 +42,7 @@ export default function Tool() {
 
     return <div>
         <h1>{data.heading}</h1>
-        <div dangerouslySetInnerHTML={{__html: data.content}}></div>
+        <div style={{whiteSpace: 'pre-line'}} dangerouslySetInnerHTML={{__html: data.content}}></div>
         <a href={data.url}>{data.heading}</a>
     </div>;
 }
