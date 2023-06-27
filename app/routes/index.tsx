@@ -1,7 +1,8 @@
-import { Link, Outlet, useLoaderData } from '@remix-run/react';
-import { json, LoaderArgs } from '@remix-run/cloudflare';
+import { Link, useLoaderData } from '@remix-run/react';
+import type { LoaderArgs } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import tools from '../../public/tools.json';
-import { ITool } from '~/routes/tool.$toolid';
+import type { ITool } from '~/routes/tool.$toolid';
 
 const Introduction = () => {
     return <><p>Are you tired of spending hours on end writing and editing your content? Do you wish there was a way to
@@ -52,18 +53,19 @@ export default function Index() {
             <h1>Fast-Content.com</h1>
         </header>
         <Introduction></Introduction>
+        <img alt="showing a computer man" src="/header-image.webp" style={{width: '100%'}} />
         <div className="tools-preview">
-        {data.map((t, i) => <div key={i + 'outer'}>
-            <Link to={`/tool/${t.shortName}`}>
-                <div>
-                    <h2>{t.heading}</h2>
+            {data.map((t, i) => <div key={i + 'outer'}>
+                <Link to={`/tool/${t.shortName}`}>
+                    <div>
+                        <h2>{t.heading}</h2>
 
-                </div>
-            </Link>
-            <p>
-                <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 250) + '...'}}></div>
-            </p>
-        </div>)}
+                    </div>
+                </Link>
+                <p>
+                    <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 250) + '...'}}></div>
+                </p>
+            </div>)}
         </div>
     </>;
 }
