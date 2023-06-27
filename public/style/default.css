@@ -31,3 +31,9 @@ p {
 a {
     color: var(--secondary-color);
 }
+
+.tools-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
