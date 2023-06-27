@@ -57,9 +57,12 @@ export default function Index() {
             <Link to={`/tool/${t.shortName}`}>
                 <div>
                     <h2>{t.heading}</h2>
-                    <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 150) + '...'}}></div>
+
                 </div>
             </Link>
+            <p>
+                <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 250) + '...'}}></div>
+            </p>
         </div>)}
         </div>
     </>;
