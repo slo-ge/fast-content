@@ -1,5 +1,5 @@
 import tools from 'public/tools.json';
-import type { LoaderArgs } from '@remix-run/cloudflare';
+import type { LoaderArgs, MetaFunction } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 
@@ -19,6 +19,22 @@ export const loader = async ({params}: LoaderArgs) => {
     }
 
     return json(tool);
+};
+
+export const meta: MetaFunction<typeof loader> = ({data}) => {
+    return [
+        {
+            title: data.heading,
+        },
+        {
+            property: "og:title",
+            content: data.heading
+        },
+        {
+            name: "description",
+            content: data.content.slice(0, 100).trim()
+        }
+    ];
 };
 
 export default function Tool() {

@@ -14,13 +14,14 @@ import { SEO_DESCRIPTION, SEO_TITLE } from '~/static';
 import { Header } from '~/components/header';
 import React from 'react';
 
-export const meta: MetaFunction = () => ({
-    charset: 'utf-8',
-    title: SEO_TITLE,
-    viewport: 'width=device-width,initial-scale=1',
-    description: SEO_DESCRIPTION
-});
-
+export const meta: MetaFunction = () => {
+    return [
+        {charSet: 'utf-8'},
+        {title: SEO_TITLE},
+        {description: SEO_DESCRIPTION},
+        {viewport: 'width=device-width,initial-scale=1'}
+    ];
+};
 
 export function links() {
     return [
