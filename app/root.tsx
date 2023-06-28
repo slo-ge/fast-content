@@ -1,4 +1,4 @@
-import type { MetaFunction } from '@remix-run/cloudflare';
+import type { HeadersFunction, MetaFunction } from '@remix-run/cloudflare';
 import {
     Links,
     LiveReload,
@@ -19,7 +19,6 @@ export const meta: MetaFunction = () => {
         {charSet: 'utf-8'},
         {title: SEO_TITLE},
         {description: SEO_DESCRIPTION},
-        {viewport: 'width=device-width,initial-scale=1'}
     ];
 };
 
@@ -32,10 +31,17 @@ export function links() {
     ];
 }
 
+export const headers: HeadersFunction = () => ({
+    'X-Stretchy-Pants': 'its for fun',
+    'Cache-Control': 'max-age=300, s-maxage=3600',
+});
+
 export default function App() {
     return (
         <html lang="en">
+
         <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-FPQ3K7G5QW"></script>
             <script dangerouslySetInnerHTML={{
                 __html: `
