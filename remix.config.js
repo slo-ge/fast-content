@@ -7,6 +7,7 @@ module.exports = {
   future: {
     v2_meta: true,
   },
+  tailwind: true,
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // serverBuildPath: "functions/[[path]].js",

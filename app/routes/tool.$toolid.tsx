@@ -8,6 +8,7 @@ export interface ITool {
     url: string;
     shortName: string;
     content: string;
+    imageUrl?: string;
 }
 
 export const loader = async ({params}: LoaderArgs) => {
@@ -41,8 +42,9 @@ export default function Tool() {
     const data = useLoaderData<typeof loader>();
 
     return <div>
-        <h1>{data.heading}</h1>
-        <div style={{whiteSpace: 'pre-line'}} dangerouslySetInnerHTML={{__html: data.content}}></div>
-        <a href={data.url}>{data.heading}</a>
+        <h1 className="text-3xl text-primary my-5">{data.heading}</h1>
+        {data.imageUrl && <img className="object-cover p-10" src={data.imageUrl + '?w=200'}/>}
+        <div className="whitespace-pre-line" dangerouslySetInnerHTML={{__html: data.content}}></div>
+        <a className="block text-2xl text-primary my-10 underline" href={data.url}>{data.heading}</a>
     </div>;
 }

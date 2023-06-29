@@ -1,15 +1,6 @@
 import type { HeadersFunction, MetaFunction } from '@remix-run/cloudflare';
-import {
-    Links,
-    LiveReload,
-    Meta,
-    Outlet,
-    Scripts,
-    ScrollRestoration,
-} from '@remix-run/react';
-
-
-import defaultStyle from 'public/style/default.css';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, } from '@remix-run/react';
+import stylesheet from '~/tailwind.css';
 import { SEO_DESCRIPTION, SEO_TITLE } from '~/static';
 import { Header } from '~/components/header';
 import React from 'react';
@@ -24,10 +15,7 @@ export const meta: MetaFunction = () => {
 
 export function links() {
     return [
-        {
-            rel: 'stylesheet',
-            href: defaultStyle
-        }
+        {rel: 'stylesheet', href: stylesheet}
     ];
 }
 
@@ -58,11 +46,13 @@ export default function App() {
             <Links/>
         </head>
         <body>
-        <Header/>
-        <Outlet/>
-        <ScrollRestoration/>
-        <Scripts/>
-        <LiveReload/>
+        <main className="m-5 md:m-10 max-w-2xl">
+            <Header/>
+            <Outlet/>
+            <ScrollRestoration/>
+            <Scripts/>
+            <LiveReload/>
+        </main>
         </body>
         </html>
     );
