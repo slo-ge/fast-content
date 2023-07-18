@@ -9,6 +9,7 @@ export interface ITool {
     shortName: string;
     content: string;
     imageUrl?: string;
+    mainCategory?: string;
 }
 
 export const loader = async ({params}: LoaderArgs) => {

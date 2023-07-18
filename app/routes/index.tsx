@@ -64,9 +64,12 @@ export default function Index() {
             {data.map((t, i) => <div key={i + 'outer'}>
                 <Link className="" to={`/tool/${t.shortName}`}>
                     <div>
-                        <h2 className="text-2xl text-primary my-5 underline">{t.heading}</h2>
+                        <h2 className="text-2xl text-primary mt-3 underline">{t.heading}</h2>
                     </div>
                 </Link>
+                <div>
+                    {t.mainCategory && <div className="text-sm inline-block my-2 py-1.5 px-2 bg-primary border-none rounded-full text-white">{t.mainCategory}</div> }
+                </div>
                 <p>
                     <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 250) + '...'}}></div>
                 </p>
