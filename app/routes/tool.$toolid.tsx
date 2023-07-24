@@ -1,7 +1,7 @@
 import tools from 'public/tools.json';
 import type { LoaderArgs, MetaFunction } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
-import { useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData } from '@remix-run/react';
 
 export interface ITool {
     heading: string;
@@ -46,6 +46,7 @@ export default function Tool() {
         <h1 className="text-3xl text-primary my-5">{data.heading}</h1>
         {data.imageUrl && <img className="object-cover p-10" src={data.imageUrl + '?w=200'}/>}
         <div className="whitespace-pre-line" dangerouslySetInnerHTML={{__html: data.content}}></div>
-        <a className="block text-2xl text-primary my-10 underline" href={data.url}>{data.heading}</a>
+        <a className="block text-2xl text-primary my-10 underline" target="_blank" href={data.url}>Website: {data.heading}</a>
+        <Link className="text-sm my-2" to={'/'}>Back</Link>
     </div>;
 }

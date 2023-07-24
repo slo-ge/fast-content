@@ -7,7 +7,9 @@ import React from 'react';
 import { ToolGrid } from '~/components/toolGrid';
 
 const Introduction = () => {
-    return <><p className="my-5">Are you tired of spending hours on end writing and editing your content? Do you wish
+    return <div className="text-sm">
+        <h1 className="text-3xl">What is <span className="text-primary">fast-content.com</span>?</h1>
+        <p className="my-5">Are you tired of spending hours on end writing and editing your content? Do you wish
         there was a way to
         create high-quality, engaging content without all the hassle and time investment? Look no further, because the
         solution is here! Introducing a range of tools that can help you create content quickly and easily.</p>
@@ -46,7 +48,7 @@ const Introduction = () => {
             interfaces, you
             can create engaging and informative content that captivates your audience and drives traffic to your
             website.</p>
-    </>;
+    </div>;
 };
 
 export const loader = async ({params}: LoaderArgs) => {

@@ -1,18 +1,21 @@
 import type { ITool } from '~/routes/tool.$toolid';
 import { Link } from '@remix-run/react';
-import React, { ChangeEvent, useState } from 'react';
-import { ToolsClient } from '~/core/clients/tools';
+import type { ChangeEvent } from 'react';
+import React, { useState } from 'react';
+import { toolsSearchHook } from '~/core/clients/tools';
 
+const colors = ['to-blue-300', 'to-red-300', 'to-green-300', 'to-yellow-300'];
 
 export function ToolGrid({tools}: { tools: ITool[] }) {
     const [searchResults, setSearchResults] = useState(tools);
-    const searchClient = new ToolsClient(tools);
+    const search = toolsSearchHook(tools);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const {value} = e.target;
-        setSearchResults(searchClient.searchTools(value));
+        setSearchResults(search(value));
     };
 
+    const randomColor = () => colors[Math.floor(Math.random() * colors.length)];
 
     return <>
         <div className="relative mt-6">
@@ -27,23 +30,26 @@ export function ToolGrid({tools}: { tools: ITool[] }) {
             <input type="search" id="search"
                    onChange={handleInputChange}
                    className="block w-full p-4 pl-10 text-sm text-gray-900 border border-primary rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                   placeholder="Search Tool here..." required />
+                   placeholder="Search Tool here..." required/>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 mt-3">
             {searchResults.map((t, i) => <div key={i + 'outer'}>
-                <Link className="" to={`/tool/${t.shortName}`}>
-                    <div>
-                        <h2 className="text-2xl text-primary mt-3 underline">{t.heading}</h2>
+                <Link className="hover:bg-amber-100" to={`/tool/${t.shortName}`}>
+                    <div
+                        className={`bg-gradient-to-r from-primary ${randomColor()} pt-3 pl-2 pb-3 border-t rounded-t-md mb-3`}>
+                        <h2 className="text-xl text-white mt-3 ">{t.heading}</h2>
+                    </div>
+                    <div className="p-2 bg-white text-sm">
+                        <p>
+                            <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 250) + '...'}}></div>
+                        </p>
+                        <div>
+                            {t.mainCategory &&
+                                <div className="my-2"><span className="font-bold">Category</span>: {t.mainCategory}</div>}
+                        </div>
                     </div>
                 </Link>
-                <div>
-                    {t.mainCategory && <div
-                        className="text-sm inline-block my-2 py-1.5 px-2 bg-primary border-none rounded-full text-white">{t.mainCategory}</div>}
-                </div>
-                <p>
-                    <div dangerouslySetInnerHTML={{__html: t.content.slice(0, 250) + '...'}}></div>
-                </p>
             </div>)}
         </div>
     </>;
