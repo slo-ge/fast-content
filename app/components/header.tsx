@@ -5,6 +5,7 @@ export function Header() {
         <nav className="flex gap-3">
             <Link className="text-primary" to={'/'}>Home</Link>
             <Link className="text-primary" to="/imprint">Imprint</Link>
+            <Link className="text-primary" to="/themes">Themes</Link>
         </nav>
     </header>
 }
