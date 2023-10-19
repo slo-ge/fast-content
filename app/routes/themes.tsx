@@ -40,6 +40,7 @@ interface PresetItem {
 
 interface PresetTag {
     name: string;
+    seoText: string;
     presets: PresetItem[];
 }
 
@@ -61,6 +62,8 @@ function TagSection({p}: { p: PresetTag }) {
 
     return <div className="my-10">
         <h2 className="text-2xl">{p.name}</h2>
+        <p className="p-4 bg-gray-200 rounded-lg whitespace-pre-wrap my-3">{p.seoText}</p>
+        <h3 className="text-xl my-3">{p.name.toUpperCase()} Themes</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 ">{prestes}</div>
     </div>;
 }
@@ -70,6 +73,7 @@ export default function Themes() {
     const tags = data.map(p => <TagSection p={p}/>);
 
     return <div>
+        <h1 className="text-2xl my-10">About the editor</h1>
         <Intro/>
         {tags}
     </div>;

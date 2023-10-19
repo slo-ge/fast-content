@@ -6,7 +6,8 @@ const BASE_URL = 'https://fast-content.com';
 
 const STATIC_URLS = [
     {url: BASE_URL, changefreq: 'daily', priority: 1},
-    {url: `${BASE_URL}/imprint`, changefreq: 'monthly', priority: 1}
+    {url: `${BASE_URL}/imprint`, changefreq: 'monthly', priority: 1},
+    {url: `${BASE_URL}/themes`, changefreq: 'daily', priority: 1},
 ];
 
 async function create() {
