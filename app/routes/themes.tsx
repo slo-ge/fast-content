@@ -25,7 +25,7 @@ const Intro = () => <div className="p-4 bg-gray-200 rounded-lg">
     vaporwave, all in one extraordinary tool.
 </div>;
 
-interface PresetItem {
+export interface PresetItem {
     title: string;
     id: string;
     preview: {
@@ -38,7 +38,7 @@ interface PresetItem {
     };
 }
 
-interface PresetTag {
+export interface PresetTag {
     name: string;
     seoText: string;
     presets: PresetItem[];
@@ -53,7 +53,7 @@ export const loader = async ({params}: LoaderArgs) => {
 };
 
 
-function TagSection({p}: { p: PresetTag }) {
+export function TagSection({p}: { p: PresetTag }) {
     const prestes = p.presets.map(_p => <a key={_p.title} className="p-4 bg-gray-200 rounded-lg" href={'https://meta-mapper.com/editor?adapter=lorem-ipsum&data=&presetId=' + _p.id}>
             <div className="text-md">{_p.title}</div>
             <div><img className="aspect-square object-cover w-64" src={'https://meta-mapper.com/cms' + _p.preview?.url}/></div>
@@ -61,7 +61,7 @@ function TagSection({p}: { p: PresetTag }) {
     );
 
     return <div className="my-10">
-        <h2 className="text-2xl">{p.name}</h2>
+        <a href={'themes/' + p.name}><h2 className="text-2xl">{p.name}</h2></a>
         <p className="p-4 bg-gray-200 rounded-lg whitespace-pre-wrap my-3">{p.seoText}</p>
         <h3 className="text-xl my-3">{p.name.toUpperCase()} Themes</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 ">{prestes}</div>
@@ -70,7 +70,7 @@ function TagSection({p}: { p: PresetTag }) {
 
 export default function Themes() {
     const data = useLoaderData<typeof loader>();
-    const tags = data.map(p => <TagSection p={p}/>);
+    const tags = data.map((p, index) => <TagSection key={index} p={p}/>);
 
     return <div>
         <h1 className="text-2xl my-10">About the editor</h1>

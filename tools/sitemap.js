@@ -8,6 +8,9 @@ const STATIC_URLS = [
     {url: BASE_URL, changefreq: 'daily', priority: 1},
     {url: `${BASE_URL}/imprint`, changefreq: 'monthly', priority: 1},
     {url: `${BASE_URL}/themes`, changefreq: 'daily', priority: 1},
+    {url: `${BASE_URL}/themes/Win95`, changefreq: 'daily', priority: 1},
+    {url: `${BASE_URL}/themes/zs`, changefreq: 'daily', priority: 1},
+    {url: `${BASE_URL}/themes/vaporwave`, changefreq: 'daily', priority: 1},
 ];
 
 async function create() {
