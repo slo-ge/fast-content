@@ -2,6 +2,7 @@ import tools from 'public/tools.json';
 import type { LoaderArgs, MetaFunction } from '@remix-run/cloudflare';
 import { json } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
+import { appendSeoPostfix } from '~/static';
 
 export interface ITool {
     heading: string;
@@ -26,15 +27,15 @@ export const loader = async ({params}: LoaderArgs) => {
 export const meta: MetaFunction<typeof loader> = ({data}) => {
     return [
         {
-            title: data.heading,
+            title: appendSeoPostfix(data.heading),
         },
         {
             property: "og:title",
-            content: data.heading
+            content: appendSeoPostfix(data.heading)
         },
         {
             name: "description",
-            content: data.content.slice(0, 100).trim()
+            content: appendSeoPostfix(data.content.slice(0, 100).trim())
         }
     ];
 };

@@ -1,12 +1,16 @@
 import type { LoaderArgs } from '@remix-run/cloudflare';
-import { json } from '@remix-run/cloudflare';
+import { json, MetaFunction } from '@remix-run/cloudflare';
 import { useLoaderData } from '@remix-run/react';
 import React from 'react';
+import { appendSeoPostfix } from '~/static';
+
+const title = 'Meta-Mapper is your ticket to a creative';
+const description = '    Step back in time and embrace the nostalgia of the Windows 95 era with Meta-Mapper, a design tool that takes you on\n' +
+    '    a journey to the vaporwave-inspired cyberworld of the past. Meta-Mapper is not just a canvas; it\'s a time machine\n' +
+    '    for your creative visions.';
 
 const Intro = () => <div className="p-4 bg-gray-200 rounded-lg">
-    Step back in time and embrace the nostalgia of the Windows 95 era with Meta-Mapper, a design tool that takes you on
-    a journey to the vaporwave-inspired cyberworld of the past. Meta-Mapper is not just a canvas; it's a time machine
-    for your creative visions.
+    {description}
     <br/>
     <br/>
     Meta-Mapper's unique charm lies in its collection of stunning presets that transport your designs to the halcyon
@@ -48,8 +52,24 @@ export const loader = async ({params}: LoaderArgs) => {
     const presets = await fetch('https://meta-mapper.com/cms/preset-tags').then(a => a.json<PresetTag[]>());
 
     return json(
-        presets.filter(i => ['Win95', 'vaporwave', 'zs'].includes(i.name))
+        presets.filter(i => !!i.seoText)
     );
+};
+
+export const meta: MetaFunction<typeof loader> = () => {
+    return [
+        {
+            title: appendSeoPostfix(title),
+        },
+        {
+            property: "og:title",
+            content: appendSeoPostfix(title)
+        },
+        {
+            name: "description",
+            content: appendSeoPostfix(description)
+        }
+    ];
 };
 
 
