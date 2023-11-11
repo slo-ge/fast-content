@@ -30,6 +30,9 @@ export default function App() {
 
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <meta name="robots" content="index, follow" />
+            <meta httpEquiv="content-language" content="en-us" />
+
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-FPQ3K7G5QW"></script>
             <script dangerouslySetInnerHTML={{
                 __html: `
