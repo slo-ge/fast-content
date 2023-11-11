@@ -1,5 +1,5 @@
-import type { LoaderArgs } from '@remix-run/cloudflare';
-import { json, MetaFunction } from '@remix-run/cloudflare';
+import type { LoaderArgs , MetaFunction } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import type { PresetTag} from '~/routes/themes';
 import { TagSection } from '~/routes/themes';
 import { useLoaderData } from '@remix-run/react';

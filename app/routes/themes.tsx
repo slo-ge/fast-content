@@ -62,11 +62,11 @@ export const meta: MetaFunction<typeof loader> = () => {
             title: appendSeoPostfix(title),
         },
         {
-            property: "og:title",
+            property: 'og:title',
             content: appendSeoPostfix(title)
         },
         {
-            name: "description",
+            name: 'description',
             content: appendSeoPostfix(description)
         }
     ];
@@ -74,10 +74,11 @@ export const meta: MetaFunction<typeof loader> = () => {
 
 
 export function TagSection({p, shortenText}: { p: PresetTag, shortenText?: boolean }) {
-    const prestes = p.presets.map(_p => <a key={_p.title} className="p-4 bg-gray-200 rounded-lg"
-                                           href={'https://meta-mapper.com/editor?adapter=lorem-ipsum&data=&presetId=' + _p.id}>
+    const prestes = p.presets.map((_p) => <a key={_p.title + `${_p.id}`} className="p-4 bg-gray-200 rounded-lg"
+                                             href={'https://meta-mapper.com/editor?adapter=lorem-ipsum&data=&presetId=' + _p.id}>
             <div className="text-md">{_p.title}</div>
-            <div><img className="aspect-square object-cover w-64" src={'https://meta-mapper.com/cms' + _p.preview?.url}/>
+            <div><img alt={`meta-mapper preset called ${_p.title}`} className="aspect-square object-cover w-64"
+                      src={'https://meta-mapper.com/cms' + _p.preview?.url}/>
             </div>
         </a>
     );
