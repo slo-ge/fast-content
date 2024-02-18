@@ -24,6 +24,10 @@ export const loader = async ({params}: LoaderArgs) => {
     return json(tool);
 };
 
+const sliceDescription = (description: string) => {
+    return description.slice(0, 100);
+}
+
 export const meta: MetaFunction<typeof loader> = ({data}) => {
     return [
         {
@@ -35,7 +39,7 @@ export const meta: MetaFunction<typeof loader> = ({data}) => {
         },
         {
             name: "description",
-            content: appendSeoPostfix(data.content.slice(0, 100).trim())
+            content: appendSeoPostfix(sliceDescription(data.content))
         }
     ];
 };
@@ -45,7 +49,7 @@ export default function Tool() {
 
     return <div>
         <h1 className="text-3xl text-primary my-5">{data.heading}</h1>
-        {data.imageUrl && <img className="object-cover p-10" src={data.imageUrl + '?w=200'}/>}
+        {data.imageUrl && <img className="object-cover p-10" alt={`Teaser image of ${data.heading}`} src={data.imageUrl + '?w=200'}/>}
         <div className="whitespace-pre-line" dangerouslySetInnerHTML={{__html: data.content}}></div>
         <a className="block text-2xl text-primary my-10 underline" target="_blank" href={data.url}>Website: {data.heading}</a>
         <Link className="text-sm my-2" to={'/'}>Back</Link>
